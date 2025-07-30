@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekanshi Garg - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+
+        .summary-text {
+            font-size: 1.1em;
+            color: #555;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .education-item, .experience-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #27ae60;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .degree {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .institution {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .percentage {
+            background: #27ae60;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            background: white;
+            padding: 8px 15px;
+            margin: 8px 0;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            background: #3498db;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .status-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="name">Ekanshi Garg</h1>
+                <p class="title">B.Tech CSE (Data Science) Student | Second Year</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>gargekanshi55@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🎓</span>
+                        <span>Fresher</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <div class="summary-text">
+                    Enthusiastic second-year B.Tech student specializing in Computer Science Engineering with Data Science, possessing foundational knowledge in programming languages and web development technologies. Eager to apply academic learning in real-world scenarios and contribute to innovative projects while continuously expanding technical expertise.
+                    <div class="status-badge">Open to Internship Opportunities</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="degree">B.Tech in Computer Science Engineering (Data Science)</div>
+                    <div class="institution">Currently in Second Year</div>
+                    <p style="margin-top: 10px; color: #666;">Pursuing comprehensive education in computer science fundamentals, data structures, algorithms, and specialized data science methodologies.</p>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Higher Secondary Education (12th Grade)</div>
+                    <div class="institution">Completed</div>
+                    <div class="percentage">88.8%</div>
+                    <p style="margin-top: 10px; color: #666;">Strong academic foundation with excellent performance in mathematics and science subjects.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <ul class="skill-list">
+                            <li>C Programming (Foundational)</li>
+                            <li>C++ (Foundational)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web Development</h3>
+                        <ul class="skill-list">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Domain Knowledge</h3>
+                        <ul class="skill-list">
+                            <li>Data Science Fundamentals</li>
+                            <li>Computer Science Principles</li>
+                            <li>Problem Solving</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <ul class="skill-list">
+                            <li>Quick Learner</li>
+                            <li>Team Collaboration</li>
+                            <li>Analytical Thinking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Academic Projects & Learning</h2>
+                <div class="experience-item">
+                    <div class="degree">Web Development Practice</div>
+                    <div class="institution">Self-Learning & Academic Projects</div>
+                    <p style="margin-top: 15px; color: #666;">
+                        • Developing proficiency in HTML, CSS, and JavaScript through hands-on practice<br>
+                        • Creating responsive web pages and interactive user interfaces<br>
+                        • Building foundational understanding of front-end development principles
+                    </p>
+                </div>
+                <div class="experience-item">
+                    <div class="degree">Programming Fundamentals</div>
+                    <div class="institution">Academic Coursework</div>
+                    <p style="margin-top: 15px; color: #666;">
+                        • Learning C and C++ programming fundamentals<br>
+                        • Understanding data structures and basic algorithms<br>
+                        • Practicing problem-solving through coding exercises
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Career Objectives</h2>
+                <div class="summary-text">
+                    Seeking internship opportunities and entry-level positions where I can apply my growing technical skills, contribute to meaningful projects, and gain valuable industry experience. Committed to continuous learning and professional development in the fields of software development and data science.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print CV</button>
+
+    <script>
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate sections on scroll
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.2s';
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add hover effects to skill items
+            const skillItems = document.querySelectorAll('.skill-list li');
+            skillItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px) scale(1.05)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0) scale(1)';
+                });
+            });
+
+            // Print button functionality with confirmation
+            document.querySelector('.print-btn').addEventListener('click', function() {
+                if (confirm('Ready to print your CV?')) {
+                    window.print();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
